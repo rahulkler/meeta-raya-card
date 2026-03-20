@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 import img1 from "./assets/images/img1.jpeg";
@@ -12,12 +12,17 @@ import img8 from "./assets/images/img8.jpeg";
 import img9 from "./assets/images/img9.jpeg";
 import img10 from "./assets/images/img10.jpeg";
 
+import musicFile from "./assets/music/raya.mp3";
+
 export default function App() {
   const [opened, setOpened] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [reasonIndex, setReasonIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [showFinale, setShowFinale] = useState(false);
+  const [musicStarted, setMusicStarted] = useState(false);
+
+  const audioRef = useRef(null);
 
   const photos = useMemo(
     () => [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10],
@@ -54,6 +59,19 @@ export default function App() {
       text: "Saya cuma nak lebih banyak masa, lebih banyak ketawa, dan lebih banyak Raya yang kita sambut bersama.",
     },
   ];
+
+  const handleOpenCard = async () => {
+    setOpened(true);
+
+    if (audioRef.current && !musicStarted) {
+      try {
+        await audioRef.current.play();
+        setMusicStarted(true);
+      } catch (error) {
+        console.error("Audio play failed:", error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (!opened) return;
@@ -95,6 +113,8 @@ export default function App() {
 
   return (
     <div className="page-shell">
+      <audio ref={audioRef} src={musicFile} loop />
+
       <div className="gold-glow gold-glow-1"></div>
       <div className="gold-glow gold-glow-2"></div>
 
@@ -123,7 +143,7 @@ export default function App() {
             itu hanya milik anda.
           </p>
 
-          <div className="envelope" onClick={() => setOpened(true)}>
+          <div className="envelope" onClick={handleOpenCard}>
             <div className="envelope-flap"></div>
             <div className="envelope-body">
               <span className="seal">💌</span>
