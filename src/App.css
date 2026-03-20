@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f5132, #198754);
+  color: #fff8e1;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #ffd700;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background: #ffd700;
+  color: #0f5132;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.secondary {
+  background: #fff3cd;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.reason {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Slideshow */
+.slideshow img {
+  width: 280px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-top: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transition: 1s;
+}
+
+/* Floating photos */
+.floating-photos img {
+  position: absolute;
+  width: 100px;
+  border-radius: 15px;
+  opacity: 0.3;
+  animation: floatPhoto 25s linear infinite;
+}
+
+.floating-photos img:nth-child(1) { left: 5%; animation-delay: 0s; }
+.floating-photos img:nth-child(2) { left: 25%; animation-delay: 5s; }
+.floating-photos img:nth-child(3) { left: 50%; animation-delay: 10s; }
+.floating-photos img:nth-child(4) { left: 70%; animation-delay: 15s; }
+.floating-photos img:nth-child(5) { left: 90%; animation-delay: 20s; }
+
+@keyframes floatPhoto {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-20vh); }
+}
