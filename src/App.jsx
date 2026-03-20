@@ -116,11 +116,11 @@ export default function App() {
             <div className="crescent"></div>
           </div>
 
-          <p className="eyebrow">A special Raya message</p>
+          <p className="eyebrow">Mesej Raya Istimewa</p>
           <h1>Selamat Hari Raya, Meeta 🌙</h1>
           <p className="hero-subtitle">
-            A little card, filled with love, memories, and a place in my heart
-            that belongs only to you.
+            Kad kecil, penuh dengan cinta, kenangan, dan tempat di hati saya
+            itu hanya milik anda.
           </p>
 
           <div className="envelope" onClick={() => setOpened(true)}>
@@ -131,7 +131,7 @@ export default function App() {
             </div>
           </div>
 
-          <p className="tap-hint">Tap the envelope</p>
+          <p className="tap-hint">Sentuh di sini</p>
         </section>
       ) : (
         <main className="content">
@@ -144,7 +144,7 @@ export default function App() {
           <section className="letter-section reveal">
             <div className="letter-card">
               <div className="letter-top">
-                <span className="mini-badge">From my heart</span>
+                <span className="mini-badge">Daripada hatiku</span>
               </div>
 
               <p className="letter-text">{typedText}</p>
@@ -164,7 +164,7 @@ export default function App() {
 
           <section className="slideshow-section reveal">
             <div className="section-heading">
-              <p className="eyebrow">Our memories</p>
+              <p className="eyebrow">Mengimbau kembali</p>
               <h3>Kenangan Kita ✨</h3>
             </div>
 
@@ -195,7 +195,7 @@ export default function App() {
 
           <section className="story-section reveal">
             <div className="section-heading">
-              <p className="eyebrow">A little story</p>
+              <p className="eyebrow">Cerita kita</p>
               <h3>Awak Dan Saya 💫</h3>
             </div>
 
@@ -212,7 +212,7 @@ export default function App() {
 
           <section className="gallery-section reveal">
             <div className="section-heading">
-              <p className="eyebrow">Captured moments</p>
+              <p className="eyebrow">Detik yang dirakam</p>
               <h3>Lebih Banyak Gambar Kita 📸</h3>
             </div>
 
@@ -228,7 +228,7 @@ export default function App() {
           {showFinale && (
             <section className="finale reveal">
               <div className="finale-card">
-                <p className="eyebrow">One last thing</p>
+                <p className="eyebrow">Satu perkara terakhir</p>
                 <h3>Saya Bersyukur Sangat Sebab Ada Awak 🌙</h3>
                 <p>
                   Semoga Raya ini membawa kebahagiaan, ketenangan, dan lebih
