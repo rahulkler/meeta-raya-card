@@ -27,25 +27,27 @@ export default function App() {
     "Sebab senyuman awak paling cantik 😊",
     "Sebab awak sentiasa ada untuk saya 🤍",
     "Sebab dengan awak, semuanya rasa cukup 🌙",
-    "Sebab… saya memang sayang awak 💕"
+    "Sebab saya memang sayang awak 💕"
   ];
 
-  // slideshow
   useEffect(() => {
     if (!opened) return;
     const interval = setInterval(() => {
       setPhotoIndex((prev) => (prev + 1) % photos.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [opened]);
+  }, [opened, photos.length]);
 
   return (
     <div className="container">
-
-      {/* Floating background photos */}
       <div className="floating-photos">
         {photos.slice(0, 5).map((img, i) => (
-          <img key={i} src={img} />
+          <img
+            key={i}
+            src={img}
+            alt={`Memory ${i + 1}`}
+            loading="lazy"
+          />
         ))}
       </div>
 
@@ -58,7 +60,6 @@ export default function App() {
         </button>
       ) : (
         <>
-          {/* Love message */}
           <div className="card">
             <p>
               Sayang,
@@ -66,15 +67,13 @@ export default function App() {
               Raya ini terasa lebih bermakna sebab awak ada dalam hidup saya.
               Setiap detik bersama awak adalah kenangan yang paling saya hargai.
               <br /><br />
-              Terima kasih sebab sentiasa ada,
-              memahami saya, dan menceriakan hari-hari saya.
+              Terima kasih sebab sentiasa ada, memahami saya, dan menceriakan hari-hari saya.
               <br /><br />
-              Saya harap ini hanyalah permulaan
-              kepada lebih banyak Raya yang kita akan sambut bersama.
+              Saya harap ini hanyalah permulaan kepada lebih banyak Raya yang kita akan sambut bersama.
               <br /><br />
               Saya sayang awak ❤️
               <br /><br />
-              — Dari saya, untuk awak 🌙
+              Dari saya, untuk awak 🌙
             </p>
 
             <button
@@ -89,9 +88,11 @@ export default function App() {
             <p className="reason">{reasons[reasonIndex]}</p>
           </div>
 
-          {/* Slideshow */}
           <div className="slideshow">
-            <img src={photos[photoIndex]} />
+            <img
+              src={photos[photoIndex]}
+              alt={`Photo ${photoIndex + 1}`}
+            />
           </div>
         </>
       )}
